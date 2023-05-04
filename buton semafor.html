@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simulare semafor</title>
+    <style>
+      body {
+        padding: 20px;
+      }
+      button {
+        margin-top: 20px;
+        line-height: 60px;
+        font-weight: bold;
+        padding: 0 40px;
+        background: red;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Buton Semafor</button>
+    <script>
+      var button = document.querySelector("button");
+      let isClicked = false;
+      let colorIndex = 0;
+      const colors = ['red', 'yellow', 'green'];
+      button.addEventListener("click", () => {
+        isClicked = !isClicked;
+        if (isClicked) {
+          colorIndex = (colorIndex + 1) % colors.length;
+          button.style.backgroundColor = colors[colorIndex];
+        } 
+      });
+      var col = "red";
+      setInterval(function() {
+        if (col == "red") {
+          button.style.backgroundColor = "yellow";
+          col = "yellow";
+        } else if (col == "yellow") {
+          button.style.backgroundColor = "green";
+          col = "green";
+        } else if (col == "green") {
+          button.style.backgroundColor = "red";
+          col = "red";
+        }
+      }, 11000);
+    </script>
+  </body>
+</html>
